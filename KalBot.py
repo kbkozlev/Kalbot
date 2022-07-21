@@ -26,8 +26,9 @@ def greet(message):
                                       "\nYou can greet me and I'll <b>respond</b>."
                                       "\nYou can ask me about the <b>time</b> and the <b>date</b>."
                                       "\nYou can ask me to tell you a <b>joke</b>."
+                                      "\nYou can ask for a <b>gif</b> and you will receive a random gif from the API."
                                       "\nYou can use <i>/weather</i> to get the <b>Weather</b>."
-                                      "\nYou can use <i>/gif</i> to get a random <b>GIF</b>."
+                                      "\nYou can use <i>/gif</i> to get a <b>GIF</b> from a specific category."
                                       "\nYou can also use <i>/info</i> to get more <b>information</b> about my creator.", parse_mode='html')
 
 
