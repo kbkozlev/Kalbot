@@ -1,4 +1,4 @@
-from jokeapi import Jokes # Import the Jokes class
+from jokeapi import Jokes
 
 """fix yelling at me error"""
 from functools import wraps
@@ -23,9 +23,9 @@ _ProactorBasePipeTransport.__del__ = silence_event_loop_closed(_ProactorBasePipe
 
 
 async def print_joke():
-    j = await Jokes()  # Initialise the class
-    joke = await j.get_joke()  # Retrieve a random joke
-    if joke["type"] == "single": # Print the joke
+    j = await Jokes()
+    joke = await j.get_joke()
+    if joke["type"] == "single":
         return joke["joke"]
     else:
         return joke["setup"] + "\n" + joke["delivery"]
