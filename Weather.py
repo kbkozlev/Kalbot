@@ -1,4 +1,5 @@
 import requests
+import API
 
 
 def get_weather(q):
@@ -7,7 +8,7 @@ def get_weather(q):
     querystring = {"q": {q}, "lat": "0", "lon": "0", "lang": "null", "units": "metric"}
 
     headers = {
-        "X-RapidAPI-Key": "be0199a2d3mshfd808ca6abe99cap13bb9djsne4856995611b",
+        "X-RapidAPI-Key": f"{API.WEATHER_KEY}",
         "X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com"
     }
 
