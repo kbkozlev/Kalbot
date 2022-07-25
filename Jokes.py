@@ -25,8 +25,10 @@ _ProactorBasePipeTransport.__del__ = silence_event_loop_closed(_ProactorBasePipe
 async def print_joke():
     j = await Jokes()
     joke = await j.get_joke()
-    if joke["type"] == "single":
-        return joke["joke"]
-    else:
-        return joke["setup"] + "\n" + joke["delivery"]
-
+    try:
+        if joke["type"] == "single":
+            return joke["joke"]
+        else:
+            return joke["setup"] + "\n" + joke["delivery"]
+    except:
+        return "Netowork not reachable"

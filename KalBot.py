@@ -21,7 +21,7 @@ def greet(message):
 
 
 @bot.message_handler(commands=['help'])
-def greet(message):
+def help(message):
     bot.send_message(message.chat.id, "Hi I'm a <b>DEMO</b> Bot!"
                                       "\nYou can greet me and I'll <b>respond</b>."
                                       "\nYou can ask me about the <b>time</b> and the <b>date</b>."
