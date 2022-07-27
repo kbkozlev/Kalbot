@@ -1,12 +1,16 @@
+import os
 import telebot
-import API
 import Gif
 import Responses as R
 import Weather
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 bot_name = R.bot_name
 
-TELEGRAM_KEY = API.TELEGRAM_KEY
+TELEGRAM_KEY = os.getenv('TELEGRAM_KEY')
 bot = telebot.TeleBot(TELEGRAM_KEY, parse_mode=None)
 
 print(f"{bot_name} Started...")
@@ -61,6 +65,7 @@ def weather(message):
 def city(message):
     q = str(message.text).lower()
     bot.send_message(message.chat.id, Weather.get_weather(q))
+
 
 
 @bot.message_handler()

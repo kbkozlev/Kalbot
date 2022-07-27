@@ -1,23 +1,34 @@
 import requests
-import API
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+WEATHER_KEY = os.getenv('WEATHER_KEY')
 
 
 def get_weather(q):
-    url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
-    querystring = {"q": {q}, "lang": "null", "units": "metric"}
+    url = "https://weatherapi-com.p.rapidapi.com/current.json"
+
+    querystring = {"q": {q}}
 
     headers = {
-        "X-RapidAPI-Key": f"{API.WEATHER_KEY}",
-        "X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com"
+        "X-RapidAPI-Key": f"{WEATHER_KEY}",
+        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     data = response.json()
+
+
     try:
-        return ("Current Temp: " + str(round(float(data["main"]["temp"]))) + " °C" + "\n" +
-                "Feels like: " + str(round(float(data["main"]["feels_like"]))) + " °C" + "\n" +
-                "Min: " + str(round(float(data["main"]["temp_min"]))) + " °C" + "\n" +
-                "Max: " + str(round(float(data["main"]["temp_max"]))) + " °C")
+        return ("Current Temp: " + str(round(float(data['current']['temp_c']))) + " °C" + "\n" +
+                "Feels like: " + str(round(float(data['current']['feelslike_c']))) + " °C" + "\n" +
+                "Condition: " + str(data['current']['condition']['text']))
+
     except:
         return "Wrong City name"
+
+
+
