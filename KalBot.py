@@ -67,7 +67,6 @@ def city(message):
     bot.send_message(message.chat.id, Weather.get_weather(q))
 
 
-
 @bot.message_handler()
 def handle_message(message):
     text = str(message.text).lower()

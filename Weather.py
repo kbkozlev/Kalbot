@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-WEATHER_KEY = os.getenv('WEATHER_KEY')
+RAPID_API = os.getenv('RAPID_API')
 
 
 def get_weather(q):
@@ -14,7 +14,7 @@ def get_weather(q):
     querystring = {"q": {q}}
 
     headers = {
-        "X-RapidAPI-Key": f"{WEATHER_KEY}",
+        "X-RapidAPI-Key": f"{RAPID_API}",
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
     }
 
