@@ -1,7 +1,6 @@
 import urllib.request, json
 import os
 from dotenv import load_dotenv
-#import API
 
 load_dotenv()
 GIPHY_KEY = os.getenv('GIPHY_KEY')
