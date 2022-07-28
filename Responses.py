@@ -10,7 +10,7 @@ def sample_responses(input_text):
     user_message = str(input_text).lower()
 
     user_greetings = ["hello", "hi", "sup", "hey"]
-    user_feeling_good = ["good", "fine", "not bad", "nb"]
+    user_feeling_good = ["good", "fine", "not bad", "nb", "not much"]
     user_feeling_bad = ["bad", "not good", "don't ask", "not very good"]
     user_thanks = ["thank you", "ty", "thanks"]
     user_ask_feeling = ["how are you", "and you", "what about you", "wbu", "hru"]
