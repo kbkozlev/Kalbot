@@ -18,7 +18,6 @@ print(f"{bot_name} Started...")
 
 @bot.message_handler(commands=['start'])
 def greet(message):
-    photo = os.path.dirname('Bot Demo.png')
     photo = open(r"Pictures\Bot Demo.png", 'rb')
     bot.send_message(message.chat.id, f"Hi {message.chat.first_name}, my name is <b>{bot_name}</b>!", parse_mode='html')
     bot.send_photo(message.chat.id, photo, caption="This is me! \nI can send Pictures!")
