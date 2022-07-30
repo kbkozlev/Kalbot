@@ -4,16 +4,13 @@ import Gif
 import Responses as R
 import Weather
 from dotenv import load_dotenv
-
+import timer
 
 load_dotenv()
-
-bot_name = R.bot_name
+timer.uptime()
 
 TELEGRAM_KEY = os.getenv('TELEGRAM_KEY')
 bot = telebot.TeleBot(TELEGRAM_KEY, parse_mode=None)
-
-print(f"{bot_name} Started...")
 
 
 @bot.message_handler(commands=['start'])
