@@ -5,18 +5,22 @@ import Responses as R
 import Weather
 from dotenv import load_dotenv
 import timer
+import threading
+
 
 load_dotenv()
-timer.uptime()
 
 TELEGRAM_KEY = os.getenv('TELEGRAM_KEY')
 bot = telebot.TeleBot(TELEGRAM_KEY, parse_mode=None)
+
+Thread1 = threading.Thread(target=bot.polling)
+Thread2 = threading.Thread(target=timer.uptime)
 
 
 @bot.message_handler(commands=['start'])
 def greet(message):
     photo = open(r"Bot Demo.png", 'rb')
-    bot.send_message(message.chat.id, f"Hi {message.chat.first_name}, my name is <b>{bot_name}</b>!", parse_mode='html')
+    bot.send_message(message.chat.id, f"Hi {message.chat.first_name}, my name is <b>{R.bot_name}</b>!", parse_mode='html')
     bot.send_photo(message.chat.id, photo, caption="This is me! \nI can send Pictures!")
     bot.send_message(message.chat.id, "Use <i>/help</i> to find out what else I can do!", parse_mode='html')
 
@@ -73,4 +77,5 @@ def handle_message(message):
         bot.send_video(message.chat.id, Gif.get_gif(), caption="I'm using an API to get this GIF")
 
 
-bot.polling()
+Thread1.start()
+Thread2.start()

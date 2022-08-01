@@ -2,8 +2,10 @@ import time
 import os
 import Responses
 
+
 def cls():
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def uptime():
     days = 0
@@ -30,8 +32,4 @@ def uptime():
         cls()
         print(f"{Responses.bot_name} has started...")
         print(f"Uptime {days}d:{hours}h:{minutes}m:{seconds}s")
-
-uptime()
-
-
 
